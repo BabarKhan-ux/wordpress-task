@@ -25,8 +25,8 @@ function create_custom_post_type() {
         'description'         => __( 'This is the test product custom post type' ),
         'labels'              => $labels,
 		
-		// Features this Custom Post Type supports in Post Editor
-		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'custom-background'),
+	// Features this Custom Post Type supports in Post Editor
+	'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'custom-background'),
 		
         'hierarchical'        => false,
         'public'              => true,
@@ -34,14 +34,14 @@ function create_custom_post_type() {
         'show_in_menu'        => true,
         'show_in_nav_menus'   => true,
         'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
-		'menu_icon'			  => 'dashicons-products',
+	'menu_position'       => 5,
+	'menu_icon'  	      => 'dashicons-products',
         'can_export'          => true,
         'has_archive'         => true,
         'exclude_from_search' => false,
         'publicly_queryable'  => true,
         'capability_type'     => 'post',
-        'show_in_rest' => true,
+        'show_in_rest' 	      => true,
 	);
 
 	// Registering your Custom Post Type
