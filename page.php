@@ -22,22 +22,27 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 			<?php
+
+			
+
 			$args = array(
 				'post_type' => 'products'
 			);
 			$customQuery = new WP_Query( $args );
 			while ( $customQuery->have_posts() ) :
-			echo '<ul class="col-sm-12 col-md-4">';
+			echo '<ul class="col-sm-12 col-md-4" >';
 			?>
-			<?php $customQuery->the_post(); ?>
+			<?php $customQuery->the_post(); 
+				global $post;
+				$post_id = $post->ID;
+			?>
 
 			
-			<div>
+			<div style="background-color: <?php echo get_post_meta( $post_id, 'background_color', true ) ?>" >
 			
-			<h3 style="text-align: center"><?php echo the_title() ?></h3>
+			<h3 style="text-align: center"><?php echo get_post_meta( $post_id, 'products_title', true ) ?></h3>
 			<?php echo the_post_thumbnail() ?>
-			<p><?php echo the_content() ?></p>
-			<a href="<?php echo the_permalink(); ?>">View Product</a>
+			<p  style="text-align:center;"><a href="<?php echo the_permalink(); ?>"> View Product</a></p>
 			
 			
 			</div>
@@ -46,13 +51,10 @@ get_header(); ?>
 			<?php
 			echo '</ul>';
 			endwhile; // End of the loop.
-      
-      // Reseting the Post Data
-      wp_reset_postdata();
 			?>
 
-		</main>
-	</div>
+		</main><!-- #main -->
+	</div><!-- #primary -->
 
 <?php
 
